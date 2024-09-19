@@ -9,38 +9,38 @@
 
 .register-title{
     font-size: 2em;
-    color: white;
+    color: #FEFFF5;
     margin-top: 1px;
   }
 
 .register-form {
     text-align: center;
     padding: 20px;
-    background-color: #141414;
-    border: 1px white solid;
+    background-color: #212121;
+    border: 1px #756AC9 solid;
     border-radius: 10px;
 }
 
 .register-form label {
     display: block;
-    color: #C70039;
+    color: #756AC9;
     margin-bottom: 8px;
 }
 
 .register-form input {
     width: 90%;
     padding: 8px;
-    background-color: #141414;
-    border: 1px white solid;
+    background-color: #212121;
+    border: 1px #FEFFF5 solid;
     border-radius: 3px;
     margin-bottom: 16px;
 }
 
 .register-form button {
     border-radius: 3px;
-    color: #1a1a1a;
-    background-color: #C70039;
-    border: 3px #C70039 solid;
+    color: #212121;
+    background-color: #756AC9;
+    border: 3px #756AC9 solid;
     font-size: 1.5em;
     border-radius: 10px;
     padding: 10px;
