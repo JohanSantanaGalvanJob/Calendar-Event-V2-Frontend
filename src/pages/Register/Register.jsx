@@ -77,7 +77,12 @@ function Register() {
                 />
                 <button onClick={handleRegister}>Register</button>
 
+                <p>Already Logged?</p>
+                <button>Login</button>
+
             </form>
+
+
 
         </div>
     );

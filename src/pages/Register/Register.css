@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-
 }
 
 .register-title{
@@ -37,11 +36,26 @@
 }
 
 .register-form button {
+    width: 100%;
     border-radius: 3px;
-    color: #212121;
-    background-color: #756AC9;
+    color: #FEFFF5;
+    background-color: #212121;
     border: 3px #756AC9 solid;
-    font-size: 1.5em;
+    font-size: 1em;
     border-radius: 10px;
     padding: 10px;
+    cursor: pointer;
 }
+
+.register-form button:hover{
+    color: #212121;
+    background-color: #756AC9;
+    transition:  0.25s ease;
+}
+
+.register-form p{
+    font-weight: bold;
+    color: #FEFFF5;
+    margin-top: 1em;
+
+  }
