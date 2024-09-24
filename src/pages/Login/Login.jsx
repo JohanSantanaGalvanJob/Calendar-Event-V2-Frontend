@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { API_URL } from "../../constants";
 import "./Login.css"
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = async () => {
         const response = await fetch(`${API_URL}/login`, {
@@ -19,6 +21,7 @@ function Login() {
             setToken(data.token);
             localStorage.setItem('token', data.token); // Guarda el token en localStorage
             console.log('User logged in:', data);
+            navigate('/events');
         } else {
             console.error('Error:', data.error);
         }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { API_URL } from "../../constants";
 import "./Register.css"
 
@@ -9,6 +10,7 @@ function Register() {
     const [first_name, setFirstName] = useState('');
     const [last_name, setLastName] = useState('');
     const [, setToken] = useState('');
+    const navigate = useNavigate();
 
     const handleRegister = async () => {
         const response = await fetch(`${API_URL}/signup`, {
@@ -24,6 +26,7 @@ function Register() {
             setToken(data.token);
             localStorage.setItem('token', data.token); // Guarda el token en localStorage
             console.log('User logged in:', data);
+            navigate('/events');
         } else {
             console.error('Error:', data.error);
         }
