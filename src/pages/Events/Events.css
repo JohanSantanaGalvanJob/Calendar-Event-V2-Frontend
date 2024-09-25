@@ -18,12 +18,26 @@
     padding-top: 1em;
 }
 
-.events-navbar :first-child {
-    margin-left: 2em;
-    cursor: pointer;
+.user-info{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-.events-navbar :last-child {
+.user-image {
+    width: 40px; /* Ajusta el tamaño según tus necesidades */
+    height: 40px; /* Ajusta el tamaño según tus necesidades */
+    border-radius: 50%; /* Hace que la imagen sea redondeada */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    margin-right: 2em;
+}
+
+.events-FaBar {
+    margin-left: 2em;
+}
+
+.events-FaUser {
     margin-right: 2em;
     cursor: pointer;
 }
@@ -220,6 +234,10 @@
     .events-container, .events-card-container {
         max-width: 100%; /* Asegura que no excedan el ancho de la pantalla */
         overflow-x: hidden; /* Evita desbordamientos horizontales */
+    }
+
+    .events-FaBar{
+        margin-left: 1em;
     }
 
     .events-card {

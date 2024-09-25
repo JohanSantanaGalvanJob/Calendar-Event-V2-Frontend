@@ -4,31 +4,52 @@ import { API_URL } from "../../constants";
 import "./Register.css"
 
 function Register() {
+    localStorage.removeItem('token');
+    const [image, setImage] = useState(null);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [birthdate, setBirthdate] = useState(null);
     const [first_name, setFirstName] = useState('');
     const [last_name, setLastName] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
     const [, setToken] = useState('');
     const navigate = useNavigate();
 
+    const handleImageChange = (e) => {
+        setImage(e.target.files[0]);
+    };
+
     const handleRegister = async () => {
+
+        const formData = new FormData();
+        formData.append('auth[first_name]', first_name);
+        formData.append('auth[last_name]', last_name);
+        formData.append('auth[birthdate]', birthdate);
+        formData.append('auth[email]', email);
+        formData.append('auth[password]', password);
+        formData.append('auth[image]', image); // Adjuntar la imagen
+
         const response = await fetch(`${API_URL}/signup`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+
             },
-            body: JSON.stringify({ first_name, last_name, email, password, birthdate }),
+            body: formData,
         });
+
         console.log(response);
         const data = await response.json();
+
         if (response.ok) {
+
             setToken(data.token);
+            setImageUrl(data.image_url);
             localStorage.setItem('token', data.token); // Guarda el token en localStorage
-            console.log('User logged in:', data);
+            alert('Usuario creado correctamente');
             navigate('/events');
+
         } else {
-            console.error('Error:', data.error);
+            alert('Error al crear el usuario');
         }
     };
 
@@ -39,12 +60,18 @@ function Register() {
 
             <form className="register-form">
 
+                <div>
+                    <label>Subir Imagen:</label>
+                    <input type="file" onChange={handleImageChange} required />
+                </div>
+
                 <label htmlFor="firstName">First Name</label>
                 <input
                     type="text"
                     placeholder="Johan"
                     value={first_name}
                     onChange={(e) => setFirstName(e.target.value)}
+                    required
                 />
 
                 <label htmlFor="lastname">Last Name</label>
@@ -53,6 +80,7 @@ function Register() {
                     placeholder="Santana"
                     value={last_name}
                     onChange={(e) => setLastName(e.target.value)}
+                    required
                 />
 
                 <label htmlFor="email">Email</label>
@@ -61,6 +89,7 @@ function Register() {
                     placeholder="email@gmail.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    required
                 />
 
                 <label htmlFor="password">Password</label>
@@ -69,6 +98,7 @@ function Register() {
                     placeholder="Hola1234"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    required
                 />
 
                 <label htmlFor="birhdate">Birthdate</label>
@@ -77,8 +107,12 @@ function Register() {
                     placeholder="Birthdate"
                     value={birthdate}
                     onChange={(e) => setBirthdate(e.target.value)}
+                    required
                 />
-                <button onClick={handleRegister}>Register</button>
+                <button type="button" onClick={(e) => {
+                    e.preventDefault();
+                    handleRegister();
+                }}>Register</button>
 
                 <p>Already Logged?</p>
                 <button>Login</button>

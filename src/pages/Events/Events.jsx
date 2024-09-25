@@ -1,24 +1,58 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaBars, FaSearch, FaUser } from "react-icons/fa";
 import { CiBookmark } from "react-icons/ci";
+import { API_URL } from "../../constants";
 import "./Events.css"
 
 function Events() {
 
     const IMAGE_SOURCE = 'https://media.licdn.com/dms/image/C5612AQGbvv_Zj5JQ1w/article-cover_image-shrink_720_1280/0/1551108267663?e=2147483647&v=beta&t=0Q8tP_opTQTHswRBcgHlCOzSIc67crsHE61AGWLOS44'
 
+    const [user, setUser] = useState(null);
+    const token = localStorage.getItem('token');
+
+    useEffect(() => {
+        if (token) {
+            // Realiza la petición al endpoint del perfil del usuario
+            fetch(`${API_URL}/profile`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.user) {
+                        setUser(data.user); // Guardar los datos del usuario
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error fetching user profile:', error);
+                });
+        }
+    }, [token]);
 
     return (
         <>
             <div className='events-container'>
 
                 <div className='events-navbar'>
-                    <FaBars size={20} />
+                    <FaBars size={20} className='events-FaBar' />
                     <div className='events-navbar-searchbar'>
                         <input type='text'></input>
                         <FaSearch size={20} />
                     </div>
-                    <FaUser size={20} />
+                    {user && (
+                        <div className="user-info">
+                            {user.image_url ? (
+                                <img src={user.image_url} alt="Profile" className="user-image" />
+                            ) : (
+                                <div className="user-image-placeholder" />
+                            )}
+                            {/* Mostrar el ícono solo si no hay imagen */}
+                            {!user.image_url && <FaUser size={20} className='events-FaUser' />}
+                        </div>
+                    )}
                 </div>
 
                 <div className='events-card-container'>
