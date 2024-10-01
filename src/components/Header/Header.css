@@ -1,0 +1,116 @@
+.header-bar {
+    top: 0;
+    width: 100%;
+    height: 6vh;
+    background-color: #212121;
+    border-bottom: 1px #756AC9 solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.header-user-info {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-right: 2em;
+    padding: 0;
+    border: 1px #212121 solid;
+}
+
+.header-user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.header-user-info:hover {
+    border-radius: 50%;
+    border: 1px #756AC9 solid;
+    transition:  0.25s;
+}
+
+.header-FaBar {
+    margin-left: 2em;
+    cursor: pointer;
+}
+
+.header-FaBar:hover {
+    color: #756AC9;
+    transition: 0.25s ease;
+}
+
+.header-FaUser {
+    margin-right: 2em;
+    cursor: pointer;
+}
+
+.header-bar-searchbar {
+    display: flex;
+    width: 30%;
+    justify-content: end;
+}
+
+.header-bar-searchbar :first-child {
+    width: 90%;
+    padding: 0.5em;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px #756AC9 solid;
+}
+
+.header-bar-searchbar :nth-child(2) {
+    background-color: #212121;
+    border: 1px #756AC9 solid;
+    width: 10%;
+    padding: 0.5em;
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
+}
+
+.header-bar-searchbar :nth-child(2):hover {
+    background-color: #756AC9;
+    transition: 0.25s ease;
+}
+
+@media (max-width: 1024px) {
+    .header-bar-searchbar {
+        width: 50%;
+        padding: 1em;
+    }
+
+    .header-bar {
+        width: 100%;
+        height: 7vh;
+        padding: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-bar-searchbar {
+        width: 60%;
+    }
+
+    .header-bar {
+        width: 100%;
+        height: 8vh;
+        padding: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-bar {
+        height: 8vh;
+        padding: 1em;
+    }
+
+    .header-FaBar {
+        margin-left: 1em;
+    }
+}
+
+
