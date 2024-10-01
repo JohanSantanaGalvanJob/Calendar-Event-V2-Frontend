@@ -1,11 +1,11 @@
-.events-container{
+.events-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-.events-navbar{
+.events-navbar {
     top: 0;
     width: 100%;
     height: 6vh;
@@ -18,23 +18,38 @@
     padding-top: 1em;
 }
 
-.user-info{
+.user-info {
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
-    margin: 0;
+    margin-right: 2em;
     padding: 0;
+    border: 1px #212121 solid;
 }
 
 .user-image {
-    width: 40px; /* Ajusta el tamaño según tus necesidades */
-    height: 40px; /* Ajusta el tamaño según tus necesidades */
-    border-radius: 50%; /* Hace que la imagen sea redondeada */
-    object-fit: cover; /* Mantiene la proporción de la imagen */
-    margin-right: 2em;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.user-info:hover {
+    border-radius: 50%;
+    border: 1px #756AC9 solid;
+    transition:  0.25s;
 }
 
 .events-FaBar {
     margin-left: 2em;
+    cursor: pointer;
+}
+
+.events-FaBar:hover {
+    color: #756AC9;
+    transition: 0.25s ease;
 }
 
 .events-FaUser {
@@ -42,7 +57,7 @@
     cursor: pointer;
 }
 
-.events-navbar-searchbar{
+.events-navbar-searchbar {
     display: flex;
     width: 30%;
     justify-content: end;
@@ -64,19 +79,19 @@
     cursor: pointer;
 }
 
-.events-navbar-searchbar :nth-child(2):hover{
+.events-navbar-searchbar :nth-child(2):hover {
     background-color: #756AC9;
-    transition:  0.25s ease;
+    transition: 0.25s ease;
 }
 
-.events-card-container{
+.events-card-container {
     flex-grow: 1;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
 
-.events-card{
+.events-card {
     display: flex;
     height: 30vh;
     width: 30%;
@@ -88,13 +103,13 @@
     position: relative;
 }
 
-.events-card-image-container{
+.events-card-image-container {
     margin-left: 1em;
-    margin-top:1em;
+    margin-top: 1em;
     position: relative;
 }
 
-.events-card-image-container :nth-child(2){
+.events-card-image-container :nth-child(2) {
     background-color: #756AC9;
     padding: 0.5em;
     border-radius: 0px 0px 0px 10px;
@@ -104,22 +119,37 @@
     position: absolute;
 }
 
-.events-card-image{
+.events-card-image {
     width: 175px;
     height: 250px;
     object-fit: cover;
 }
 
-.events-card-content{
+.events-card-content {
     margin-left: 1em;
     margin-right: 1em;
 }
 
-.events-card-content p{
+.events-card-content p {
     font-size: smaller;
 }
 
-.events-footer{
+.events-card-content-label-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.events-card-content-label {
+    border: 1px #756AC9 solid;
+    border-radius: 10px;
+    width: 7vw;
+    padding: 5px;
+    color: #FEFFF5;
+    background-color: #756AC9;
+    text-align: center;
+}
+
+.events-footer {
     bottom: 0;
     width: 100%;
     margin-top: 1em;
@@ -137,123 +167,130 @@
     margin-left: 1em;
 }
 
-/* Estilos generales para dispositivos más grandes siguen igual */
-
-/* Media Queries para dispositivos medianos (tablets) */
 @media (max-width: 1024px) {
     .events-card {
-        width: 45%; /* Tarjetas más anchas en tablets, ocupando casi la mitad del espacio */
-        height: auto; /* Ajusta la altura según el contenido */
-        margin: 0.5em; /* Menor margen para permitir más espacio entre tarjetas */
+        width: 45%;
+        height: auto;
+        margin: 0.5em;
     }
 
-    .events-container, .events-card-container {
-        max-width: 100%; /* Asegura que no excedan el ancho de la pantalla */
-        overflow-x: hidden; /* Evita desbordamientos horizontales */
+    .events-container,
+    .events-card-container {
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .events-card-image {
-        width: 100%; /* Imagen ajustada al 100% del contenedor */
-        height: auto; /* Ajusta la altura automáticamente */
+        width: 100%;
+        height: auto;
     }
 
     .events-card-content {
-        margin: 0.5em 1em; /* Ajusta el margen para dar más espacio a los textos */
+        margin: 0.5em 1em;
     }
 
     .events-navbar-searchbar {
-        width: 50%; /* Ajusta el tamaño de la barra de búsqueda */
-        padding: 1em; /* Reduce el padding */
+        width: 50%;
+        padding: 1em;
     }
 
     .events-navbar {
         width: 100%;
-        height: 7vh; /* Un poco más alto para mayor visibilidad */
-        padding: 1em; /* Reduce el padding */
+        height: 7vh;
+        padding: 1em;
     }
 
     .events-footer p {
-        font-size: 0.9em; /* Reduce un poco el tamaño del texto en el footer */
+        font-size: 0.9em;
+    }
+
+    .events-card-content-label {
+        width: 40%;
     }
 }
 
-/* Media Queries para dispositivos pequeños (móviles) */
 @media (max-width: 768px) {
     .events-card {
-        width: 40%; /* La tarjeta ocupa más espacio en pantallas pequeñas */
-        height: auto; /* Ajusta la altura según el contenido */
-        flex-direction: column; /* Cambia a disposición vertical */
+        width: 40%;
+        height: auto;
+        flex-direction: column;
         margin-left: 1em;
     }
 
-    .events-container, .events-card-container {
-        max-width: 100%; /* Asegura que no excedan el ancho de la pantalla */
-        overflow-x: hidden; /* Evita desbordamientos horizontales */
+    .events-container,
+    .events-card-container {
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .events-navbar {
         width: 100%;
-        height: 8vh; /* Ajusta la altura del navbar en pantallas extra pequeñas */
-        padding: 1em; /* Reduce el padding */
+        height: 8vh;
+        padding: 1em;
     }
 
-    .events-card-image{
+    .events-card-image {
         width: 100%;
         height: 250px;
         object-fit: cover;
     }
 
-    .events-card-container{
+    .events-card-container {
         justify-content: center;
     }
 
     .events-card-content {
-        margin: 1em; /* Ajusta el margen para dar más espacio en pantallas pequeñas */
+        margin: 1em;
     }
 
     .events-navbar-searchbar {
-        width: 60%; /* Ajusta el tamaño de la barra de búsqueda en pantallas pequeñas */
+        width: 60%;
     }
 
     .events-footer {
-        flex-direction: column; /* Cambia la disposición del footer */
-        text-align: center; /* Centra el texto */
+        flex-direction: column;
+        text-align: center;
     }
 
-    .events-card-image-container{
+    .events-card-image-container {
         margin-right: 1em;
+    }
+
+    .events-card-content-label {
+        width: 40%;
     }
 }
 
 @media (max-width: 480px) {
     .events-navbar {
-        height: 8vh; /* Ajusta la altura del navbar en pantallas extra pequeñas */
-        padding: 1em; /* Reduce el padding */
+        height: 8vh;
+        padding: 1em;
     }
 
-    .events-container, .events-card-container {
-        max-width: 100%; /* Asegura que no excedan el ancho de la pantalla */
-        overflow-x: hidden; /* Evita desbordamientos horizontales */
+    .events-container,
+    .events-card-container {
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
-    .events-FaBar{
+    .events-FaBar {
         margin-left: 1em;
     }
 
     .events-card {
-        width: 100%; /* La tarjeta ocupa todo el ancho en pantallas pequeñas */
+        width: 100%;
         margin-right: 1em;
     }
 
     .events-card-content p {
-        font-size: 0.9em; /* Reduce el tamaño de la fuente */
+        font-size: 0.9em;
     }
 
-    .events-card-image-container{
+    .events-card-image-container {
         margin-right: 1em;
     }
 
-    .events-footer{
+    .events-footer {
         font-size: 0.9em;
         padding: 0;
     }
@@ -261,6 +298,10 @@
     .events-footer p {
         margin-right: 1em;
 
+    }
+
+    .events-card-content-label {
+        width: 40%;
     }
 
 }

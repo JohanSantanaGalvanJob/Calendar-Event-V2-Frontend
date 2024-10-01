@@ -3,7 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 .register-title{

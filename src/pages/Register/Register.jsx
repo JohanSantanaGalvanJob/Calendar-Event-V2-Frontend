@@ -60,10 +60,8 @@ function Register() {
 
             <form className="register-form">
 
-                <div>
-                    <label>Subir Imagen:</label>
+                    <label>Upload Image</label>
                     <input type="file" onChange={handleImageChange} required />
-                </div>
 
                 <label htmlFor="firstName">First Name</label>
                 <input
@@ -80,6 +78,15 @@ function Register() {
                     placeholder="Santana"
                     value={last_name}
                     onChange={(e) => setLastName(e.target.value)}
+                    required
+                />
+
+                <label htmlFor="birhdate">Birthdate</label>
+                <input
+                    type="date"
+                    placeholder="Birthdate"
+                    value={birthdate}
+                    onChange={(e) => setBirthdate(e.target.value)}
                     required
                 />
 
@@ -101,14 +108,6 @@ function Register() {
                     required
                 />
 
-                <label htmlFor="birhdate">Birthdate</label>
-                <input
-                    type="date"
-                    placeholder="Birthdate"
-                    value={birthdate}
-                    onChange={(e) => setBirthdate(e.target.value)}
-                    required
-                />
                 <button type="button" onClick={(e) => {
                     e.preventDefault();
                     handleRegister();
