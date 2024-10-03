@@ -1,0 +1,48 @@
+.navbar-container{
+    width: 15%;
+    background-color: #212121;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px #756AC9 solid;
+    opacity: 0; /* Comienza oculto */
+    transform: translateX(-100%); /* Desplazado hacia la izquierda */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.navbar-container.open {
+    opacity: 1; /* Muestra el navbar */
+    transform: translateX(0); /* Regresa a su posición original */
+}
+
+.navbar-element {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 2em;
+    margin-top: 1em;
+}
+
+.navbar-element :first-child{
+    margin-right: 1em;
+}
+
+.navbar-shadow{
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 99;
+    opacity: 0; /* Comienza oculto */
+    transition: opacity 0.5s ease; /* Transición suave para la sombra */
+}
+
+.navbar-shadow.visible {
+    opacity: 0.5; /* Muestra la sombra */
+}

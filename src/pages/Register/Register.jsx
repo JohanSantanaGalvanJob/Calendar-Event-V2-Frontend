@@ -117,9 +117,6 @@ function Register() {
                 <button>Login</button>
 
             </form>
-
-
-
         </div>
     );
 }

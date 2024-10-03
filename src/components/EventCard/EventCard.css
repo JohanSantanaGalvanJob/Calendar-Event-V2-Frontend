@@ -48,7 +48,7 @@
     justify-content: space-between;
 }
 
-.events-card-content-label-container p{
+.events-card-content-label {
     border: 1px #756AC9 solid;
     border-radius: 10px;
     width: 7vw;
